@@ -3,66 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ratul Howladar</title>
+    <title>Ratul Howladar — Directory</title>
     <style>
         body {
-            background-color: #ffffff; /* সাদা ব্যাকগ্রাউন্ড */
-            color: #000000;
-            font-family: 'Courier New', Courier, monospace;
-            padding: 35px;
-            font-size: 16px;
+            /* কালারফুল এআই আভা দেওয়ার জন্য ডিপ ভায়োলেট ও সায়ান-ব্লু মিক্সড গ্রেডিয়েন্ট */
+            background: radial-gradient(circle at top left, #1c0024, transparent 60%),
+                        radial-gradient(circle at bottom right, #001a33, transparent 60%),
+                        #000000; /* বেস পিচ ব্ল্যাক */
+            background-attachment: fixed;
+            color: #e0e0e0;
+            font-family: 'Georgia', serif;
+            padding: 80px 25px;
+            max-width: 450px; /* লাইন লেন্থ লক যাতে এক লাইনে বেশি লেখা না ছড়ায় */
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 20px; /* জুম ফিক্সড - একদম স্পষ্ট আর বড় দেখাবে */
+            position: relative;
+            z-index: 1;
         }
+
+        /* হোয়াইট অ্যান্ড ব্ল্যাক গথিক এসভিজি ওয়াটারমার্ক */
+        .gothic-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.04; /* হালকা সাদা আভা যা ডার্ক মোডে গথিক লুক দেবে */
+            pointer-events: none;
+            user-select: none;
+        }
+
         h1 {
-            font-size: 22px;
+            font-size: 28px;
             font-weight: bold;
             margin-top: 0;
-            margin-bottom: 25px;
-            color: #000000;
-            white-space: nowrap; /* নাম কোনোভাবেই ২ লাইনে ভাঙবে না */
+            margin-bottom: 5px;
+            color: #ffffff;
         }
-        /* pre ট্যাগ ভেতরের ট্রি-লাইনগুলোকে একদম লক করে রাখবে */
-        pre {
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.6;
-            margin: 0;
-            font-size: 17px;
+
+        .subtitle {
+            font-size: 14px;
+            color: #888888;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 45px;
         }
-        .folder-link {
-            color: #0000ff; /* ফোল্ডার নীল */
-            text-decoration: underline;
+
+        /* প্রো কোডার টার্মিনাল ডিরেক্টরি ট্রি স্টাইল */
+        .tree-container {
+            margin: 30px 0 50px 0;
+            line-height: 2;
+        }
+
+        .tree-root {
+            font-family: monospace;
+            color: #888888;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .tree-line {
+            margin-bottom: 10px;
+            white-space: nowrap; /* লাইন যাতে মাঝখান থেকে ভেঙে না যায় */
+        }
+
+        .tree-char {
+            color: #555555;
+            font-family: monospace; /* টার্মিনাল ডিরেক্টরি ক্যারেক্টার ফন্ট */
+            letter-spacing: 2px;
             font-weight: bold;
+            display: inline-block;
         }
-        .file-link {
-            color: #008000; /* ফাইল সবুজ */
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .file-link:hover {
+
+        a {
+            color: #4da6ff; /* অ্যাসথেটিক ব্লু */
             text-decoration: underline;
+        }
+
+        a:hover {
+            color: #80bfff;
+        }
+
+        /* বটম গথিক সিগনেচার */
+        .gothic-separator {
+            text-align: center;
+            margin-top: 50px;
+            color: #444444;
+            font-size: 22px;
+            letter-spacing: 12px;
+            font-family: monospace;
+            user-select: none;
+        }
+
+        /* রেসপনসিভ জুম প্রোটেকশন */
+        @media (max-width: 600px) {
+            body {
+                padding: 60px 20px;
+                font-size: 19px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Ratul Howladar</h1>
+    <!-- গথিক হোয়াইট অ্যান্ড ব্ল্যাক ওয়াটারমার্ক গ্রাফিক্স -->
+    <div class="gothic-watermark">
+        <svg width="100%" height="100%" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 400,50 L 400,750 M 100,320 L 700,320" stroke="#ffffff" stroke-width="2" />
+            <polygon points="400,100 460,320 400,700 340,320" fill="none" stroke="#ffffff" stroke-width="1.5" />
+            <circle cx="400" cy="320" r="120" fill="none" stroke="#ffffff" stroke-width="1.5" />
+            <circle cx="400" cy="320" r="200" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="6,6" />
+            <path d="M 400,320 L 230,150 M 400,320 L 570,150 M 400,320 L 230,490 M 400,320 L 570,490" stroke="#ffffff" stroke-width="1" />
+        </svg>
+    </div>
 
-<pre>
-├── <a href="about.html" class="folder-link">about</a>
-│   └── <a href="about.html" class="file-link">intro.txt</a>
-├── <a href="social_media.html" class="folder-link">social_media</a>
-│   ├── <a href="social_media.html" class="file-link">facebook.txt</a>
-│   ├── <a href="social_media.html" class="file-link">instagram.txt</a>
-│   └── <a href="social_media.html" class="file-link">linkedin.txt</a>
-├── <a href="education.html" class="folder-link">education</a>
-│   └── <a href="education.html" class="file-link">degree.txt</a>
-├── <a href="music.html" class="folder-link">music</a>
-│   ├── <a href="music.html" class="file-link">genres.txt</a>
-│   ├── <a href="music.html" class="file-link">artists.txt</a>
-│   └── <a href="music.html" class="file-link">tracks.txt</a>
-├── <a href="ai_projects.html" class="folder-link">ai_projects</a>
-└── <a href="contact.html" class="folder-link">contact</a>
-    └── <a href="contact.html" class="file-link">details.txt</a>
-</pre>
+    <h1>Ratul Howladar</h1>
+    <div class="subtitle">personal directory / v1.0</div>
+
+    <!-- লিজেন্ডারি টার্মিনাল ডিরেক্টরি ট্রি স্ট্রাকচার -->
+    <div class="tree-container">
+        <span class="tree-root">root@ratul_howladar:~# tree</span>
+        
+        <div class="tree-line">
+            <span class="tree-char">├──</span> <a href="about.html">about / identity</a>
+        </div>
+        
+        <div class="tree-line">
+            <span class="tree-char">├──</span> <a href="social_media.html">socials / network</a>
+        </div>
+        
+        <div class="tree-line">
+            <span class="tree-char">├──</span> <a href="education.html">education / timeline</a>
+        </div>
+        
+        <div class="tree-line">
+            <span class="tree-char">├──</span> <a href="music.html">music / auditory</a>
+        </div>
+        
+        <div class="tree-line">
+            <span class="tree-char">└──</span> <a href="ai_projects.html">ai_projects / neural_labs</a>
+        </div>
+    </div>
+
+    <!-- গথিক সিগনেচার সাইন -->
+    <div class="gothic-separator">⸸ ✞ ☠ ✞ ⸸</div>
 
 </body>
 </html>

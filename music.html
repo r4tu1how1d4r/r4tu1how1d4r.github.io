@@ -1,13 +1,141 @@
-<body style="background:#000; color:#00ffff; font-family:'Courier New'; padding:20px;">
-<pre>
-Music:
-├── genres: Nu Metal, Pagan Folk, Dark Metal, Calm Music
-├── artists
-│   ├── <a style="color:#00ffff;" href="https://www.instagram.com/slipknot/">Slipknot</a>, <a style="color:#00ffff;" href="https://www.instagram.com/korn_official/">Korn</a>, <a style="color:#00ffff;" href="https://www.instagram.com/slaughtertoprevail/">Slaughter to Prevail</a>, <a style="color:#00ffff;" href="https://www.instagram.com/heartagram/">HIM (Heartagram)</a>, <a style="color:#00ffff;" href="https://www.instagram.com/linkinpark/">Linkin Park</a>
-│   └── <a style="color:#00ffff;" href="https://www.instagram.com/rammsteinofficial/">Rammstein</a>, <a style="color:#00ffff;" href="https://www.instagram.com/thebeatles/">The Beatles</a>, <a style="color:#00ffff;" href="https://www.instagram.com/avrillavigne/">Avril Lavigne</a>, <a style="color:#00ffff;" href="https://www.instagram.com/evanescenceofficial/">Evanescence</a>, <a style="color:#00ffff;" href="https://www.instagram.com/radiohead/">Radiohead</a>
-└── in_memoriam
-    ├── <a style="color:#00ffff;" href="https://www.instagram.com/chesterbe/">Chester Bennington</a>
-    └── <a style="color:#00ffff;" href="https://www.instagram.com/xxxtentacion/">XXXTentacion</a>
-<a style="color:#00ffff;" href="index.html">← Back</a>
-</pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratul Howladar - Auditory</title>
+    <style>
+        body {
+            background-color: #000000; /* অবসিডিয়ান ব্ল্যাক */
+            color: #d8d8d8; 
+            font-family: 'Georgia', serif; 
+            padding: 60px 25px;
+            max-width: 460px; /* লাইন লেন্থ লক যাতে এক লাইনে বেশি লেখা না ছড়ায় */
+            margin: 0 auto;
+            line-height: 1.8; 
+            font-size: 20px; /* জুম ফিক্সড - হাই-রেজোলিউশন ও ক্লিয়ার ভিউ */
+        }
+        
+        h1 {
+            font-size: 24px; 
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 35px;
+        }
+        
+        h1 a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .section-title {
+            font-size: 15px;
+            color: #777777;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        p {
+            margin-bottom: 25px;
+            color: #cccccc;
+        }
+
+        /* গথিক/অল্টারনেটিভ লিস্ট স্টাইল */
+        .music-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 30px 0 45px 0;
+        }
+
+        .music-list li {
+            margin-bottom: 24px;
+        }
+
+        .meta-tag {
+            font-size: 13px;
+            color: #555555;
+            display: block;
+            font-family: monospace; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .artist-name {
+            color: #ffffff;
+            font-weight: bold;
+            display: block;
+        }
+
+        a {
+            color: #4da6ff; /* অ্যাসথেটিক ইলেকট্রিক ব্লু */
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #80bfff;
+        }
+        
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* সোবার লাস্টে গথিক সিগনেচার চিহ্ন */
+        .gothic-separator {
+            text-align: center;
+            margin-top: 50px;
+            color: #666666;
+            font-size: 22px;
+            letter-spacing: 12px;
+            font-family: monospace;
+            user-select: none;
+        }
+
+        /* রেসপনসিভ প্রোটেকশন */
+        @media (max-width: 600px) {
+            body {
+                padding: 40px 20px;
+                font-size: 19px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1><a href="index.html">Ratul Howladar</a></h1>
+
+    <div class="section-title">auditory / genres & soundscapes</div>
+
+    <p>
+        Soundscapes dictate reality. My auditory rotation heavily leans into alternative rock, post-punk, and raw, dark atmospheric textures. Caching heavy rhythms that run endlessly in the background during late-night build sessions.
+    </p>
+
+    <div class="section-title">memoria / collectives & artists</div>
+
+    <ul class="music-list">
+        <li>
+            <span class="meta-tag">collective / memoria</span>
+            <span class="artist-name">Memoria Archive</span>
+            <a href="https://instagram.com/your_memoria_link" target="_blank">instagram / @memoria</a>
+        </li>
+        <li>
+            <span class="meta-tag">band / heavy rotation</span>
+            <span class="artist-name">Favorite Band 01</span>
+            <a href="https://instagram.com/band_insta" target="_blank">instagram / @band_one</a>
+        </li>
+        <li>
+            <span class="meta-tag">artist / alternative</span>
+            <span class="artist-name">Favorite Artist 02</span>
+            <a href="https://instagram.com/artist_insta" target="_blank">instagram / @artist_two</a>
+        </li>
+    </ul>
+
+    <a href="index.html" class="back-link">← Back</a>
+
+    <!-- টপ কোডার গথিক সিগনেচার এলিমেন্ট -->
+    <div class="gothic-separator">⸸ ✞ ☠ ✞ ⸸</div>
+
 </body>
+</html>

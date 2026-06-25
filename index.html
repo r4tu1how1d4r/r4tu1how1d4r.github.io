@@ -1,22 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-    body { background-color: #000; color: #00ffff; font-family: 'Courier New', Courier, monospace; padding: 20px; }
-    a { color: #00ffff; text-decoration: none; display: block; margin-bottom: 5px; }
-    a:hover { background-color: #333; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            background-color: #00ff00; /* ব্যাকগ্রাউন্ড সবুজ */
+            font-family: 'Courier New', Courier, monospace;
+            padding: 50px;
+            line-height: 2;
+            font-size: 20px;
+        }
+        
+        /* আপনার নাম কালো রঙের */
+        h1 {
+            color: #000000; 
+            font-weight: bold;
+        }
+
+        /* লিঙ্কগুলোর কালার আলাদা (গাঢ় নীল) */
+        a {
+            color: #00008b; 
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .tree {
+            list-style-type: none;
+            padding-left: 0;
+            color: #00008b; /* ট্রি চিহ্নের কালার */
+        }
+        
+        .tree li {
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .tree li::before {
+            content: "└── ";
+        }
+    </style>
 </head>
 <body>
-<pre>
-Ratul Howladar
-├── type: Ambivert
-├── <a href="about.html">about</a>
-├── <a href="social_media.html">social_media</a>
-├── <a href="education.html">education</a>
-├── <a href="music.html">music</a>
-├── <a href="ai_projects.html">ai_projects</a>
-└── <a href="contact.html">contact</a>
-</pre>
+
+    <h1>Ratul Howladar</h1>
+    <ul class="tree">
+        <li><a href="about.html">about</a></li>
+        <li><a href="social_media.html">social_media</a></li>
+        <li><a href="education.html">education</a></li>
+        <li><a href="music.html">music</a></li>
+        <li><a href="ai_projects.html">ai_projects</a></li>
+        <li><a href="contact.html">contact</a></li>
+    </ul>
+
 </body>
 </html>

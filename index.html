@@ -58,7 +58,7 @@
             z-index: 10;
         }
 
-        /* মেইন ৩ডি অরবিট গ্রিড */
+        /* মেইন ৩ডি ডাইনামিক গ্রিড */
         .matrix-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -155,14 +155,15 @@
             transform: translateZ(20px);
         }
 
-        /* ওয়ার্কিং সোশ্যাল মিডিয়া প্যানেল (Connect Card) */
+        /* সোশ্যাল মিডিয়া হাব প্যানেল */
         .social-hub {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-top: 15px;
             transform: translateZ(35px); /* বাটনগুলো সবচেয়ে ওপরে থাকবে */
             flex-wrap: wrap;
             justify-content: center;
+            max-width: 320px;
         }
 
         .social-link-btn {
@@ -172,7 +173,7 @@
             font-family: monospace;
             font-size: 11px;
             font-weight: bold;
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 30px;
             border: 1px solid rgba(0, 243, 255, 0.2);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -197,19 +198,24 @@
 </head>
 <body>
 
+    <!-- ৩ডি হাইপারস্পেস টানেল ক্যানভাস -->
     <canvas id="warpCanvas"></canvas>
     <div class="ambient-mesh" id="meshGlow"></div>
 
+    <!-- HUD হেডার বার -->
     <div class="cyber-hud" id="hud-date">NEXUS CORE // SYNCING</div>
 
+    <!-- ৩ডি ডাইনামিক গ্রিড -->
     <div class="matrix-container" id="space-grid">
         
+        <!-- ০১. About Me -->
         <a href="about.html" class="cyber-card c-1">
             <span class="card-id">01</span>
             <div class="card-title">About Me</div>
             <div class="card-desc">Identity & Core</div>
         </a>
 
+        <!-- ০২. Connect (৬টি ফুললি ওয়ার্কিং বাটন সহ সোশ্যাল মিডিয়া হাব) -->
         <div class="cyber-card c-2">
             <span class="card-id">02</span>
             <div class="card-title">Connect</div>
@@ -217,21 +223,29 @@
                 <a href="https://facebook.com/ratulhowladar" target="_blank" class="social-link-btn">Facebook</a>
                 <a href="https://linkedin.com/in/ratulhowladar" target="_blank" class="social-link-btn">LinkedIn</a>
                 <a href="https://github.com/ratulhowladar" target="_blank" class="social-link-btn">GitHub</a>
+                <a href="https://instagram.com/ratulhowladar" target="_blank" class="social-link-btn">Instagram</a>
+                <!-- হোয়াটসঅ্যাপে সরাসরি চ্যাট ওপেন করতে YOUR_NUMBER এর জায়গায় কান্ট্রি কোডসহ নাম্বার দাও (যেমন: 88017xxxxxxxx) -->
+                <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="social-link-btn">WhatsApp</a>
+                <!-- সরাসরি মেইল করার জন্য your.email@example.com পরিবর্তন করে তোমার মেইল দাও -->
+                <a href="mailto:your.email@example.com" class="social-link-btn">Email</a>
             </div>
         </div>
 
+        <!-- ০৩. Education -->
         <a href="education.html" class="cyber-card c-3">
             <span class="card-id">03</span>
             <div class="card-title">Education</div>
             <div class="card-desc">Academic Timeline</div>
         </a>
 
+        <!-- ০৪. AI Projects -->
         <a href="ai_projects.html" class="cyber-card c-4">
             <span class="card-id">04</span>
             <div class="card-title">AI Projects</div>
             <div class="card-desc">Intelligence Labs</div>
         </a>
 
+        <!-- ০৫. Music Bands -->
         <a href="music.html" class="cyber-card c-5">
             <span class="card-id">05</span>
             <div class="card-title">Music Bands</div>

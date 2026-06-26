@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ratul Howladar — Quantum Core</title>
+    <title>Ratul Howladar — Quantum Core Engine</title>
     <style>
         body {
             /* কালারফুল এআই আভা দেওয়ার জন্য ডিপ ভায়োলেট ও সায়ান-ব্লু মিক্সড গ্রেডিয়েন্ট */
@@ -13,17 +13,20 @@
             background-attachment: fixed;
             color: #e0e0e0;
             font-family: 'Georgia', serif;
-            padding: 50px 25px 80px 25px;
-            max-width: 460px; /* লাইন লেন্থ লক */
+            padding: 60px 20px 90px 20px;
             margin: 0 auto;
-            line-height: 1.8;
-            font-size: 20px; /* জুম ফিক্সড - একদম স্পষ্ট আর বড় দেখাবে */
-            position: relative;
-            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow-x: hidden;
+            
+            /* পুরো বডিকে ৩ডি স্পেসে রূপান্তর */
+            perspective: 1600px;
+            perspective-origin: 50% 50%;
         }
 
-        /* হোয়াইট অ্যান্ড ব্ল্যাক গথিক এসভিজি ওয়াটারমার্ক */
+        /* হোয়াইট অ্যান্ড ব্ল্যাক গথিক এসভিজি ওয়াটারমার্ক (ব্যাকগ্রাউন্ডে আস্তে আস্তে ভাসবে) */
         .gothic-watermark {
             position: fixed;
             top: 50%;
@@ -32,40 +35,78 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            opacity: 0.04; 
+            opacity: 0.03; 
             pointer-events: none;
             user-select: none;
+            animation: watermarkDrift 20s ease-in-out infinite alternate;
         }
 
-        /* 3D Cinematic Entry Wrapper - পুরো ইন্টারফেস গভীর থেকে সামনে আসবে */
-        .view-frame {
-            transform: perspective(1200px) translateZ(-150px) translateY(20px);
-            opacity: 0;
-            animation: cinematicEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        @keyframes watermarkDrift {
+            0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+            100% { transform: translate(-50%, -47%) rotate(4deg) scale(1.05); }
         }
 
-        @keyframes cinematicEntrance {
-            to {
-                transform: perspective(1200px) translateZ(0) translateY(0);
+        /* 3D FLOATING AIR CONTAINER (হাওয়ায় ভাসমান ক্রিস্টাল গ্লাস মেইনফ্রেম) */
+        .quantum-card {
+            background: rgba(12, 12, 12, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 45px 30px;
+            max-width: 460px; /* লাইন লেন্থ লক */
+            width: 100%;
+            
+            /* থ্রিডি ডেপথ এবং ড্রপ শ্যাডো ম্যাজিক */
+            transform-style: preserve-3d;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.95);
+            
+            /* ৩ডি এন্ট্রান্স এবং কন্টিনিউয়াস ভাসমান লুপ অ্যানিমেশন */
+            animation: introFlyIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+                       hawaTeBhasa 6s ease-in-out infinite alternate 1.5s;
+        }
+
+        /* প্রথমবার পেজে ঢুকলে নিচ থেকে ৩ডি জুম হয়ে সামনে আসবে */
+        @keyframes introFlyIn {
+            0% {
+                transform: translateZ(-250px) translateY(60px) rotateX(12deg) rotateY(-5deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translateZ(0) translateY(0) rotateX(5deg) rotateY(-5deg);
                 opacity: 1;
             }
         }
 
-        /* টপ লেভেল সিস্টেম ড্যাশবোর্ড বার */
+        /* কন্টিনিউয়াস হাওয়ায় ভাসার ৩ডি লুপ (True Floating Physics) */
+        @keyframes hawaTeBhasa {
+            0% {
+                transform: translateZ(0) translateY(0) rotateX(5deg) rotateY(-5deg);
+                box-shadow: 0 40px 100px rgba(0, 0, 0, 0.95);
+            }
+            100% {
+                transform: translateZ(30px) translateY(-14px) rotateX(2deg) rotateY(-2deg);
+                box-shadow: 0 65px 140px rgba(0, 0, 0, 0.85); /* দূরত্ব বাড়লে ছায়া বড় হবে */
+            }
+        }
+
+        /* এলিট সিস্টেম ড্যাশবোর্ড বার */
         .sys-dashboard {
             display: flex;
             justify-content: space-between;
             font-family: monospace;
             font-size: 11px;
-            color: #666666;
-            border-bottom: 1px solid #222222;
+            color: #555555;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             padding-bottom: 8px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transform: translateZ(15px); /* ৩ডি লেয়ার লিফট */
         }
         .sys-status-active {
-            color: #00ff66; /* প্রফেশনাল গ্রিন */
+            color: #00ff66;
+            font-weight: bold;
         }
 
         h1 {
@@ -74,6 +115,7 @@
             margin-top: 0;
             margin-bottom: 5px;
             color: #ffffff;
+            transform: translateZ(25px);
         }
 
         .subtitle {
@@ -83,12 +125,14 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 40px;
+            transform: translateZ(20px);
         }
 
         /* ডিরেক্টরি ট্রি কন্টেইনার */
         .tree-container {
-            margin: 30px 0 50px 0;
+            margin: 30px 0 20px 0;
             line-height: 1.9;
+            transform: translateZ(20px);
         }
 
         /* টাইপিং অ্যানিমেশন প্রম্পট */
@@ -96,14 +140,14 @@
             display: inline-block;
             overflow: hidden;
             white-space: nowrap;
-            border-right: 2px solid #00f3ff; /* টাইপিং কার্সার */
+            border-right: 2px solid #00f3ff;
             font-family: monospace;
             color: #aaaaaa;
             font-size: 16px;
             letter-spacing: 1px;
             margin-bottom: 15px;
             width: 0;
-            animation: typeCommand 1s steps(30, end) 1s forwards,
+            animation: typeCommand 1s steps(30, end) 1.4s forwards,
                        blinkCursor 0.8s step-end infinite;
         }
 
@@ -115,7 +159,7 @@
             50% { border-right-color: #00f3ff; }
         }
 
-        /* ডিরেক্টরি ট্রি লাইন এবং ক্যাসকেড অ্যানিমেশন (একটি পর একটি নামবে) */
+        /* ডিরেক্টরি ট্রি ক্যাসকেড লোড */
         .tree-line {
             margin-bottom: 8px;
             font-family: monospace;
@@ -126,21 +170,18 @@
         }
 
         @keyframes cascadeSpawn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ট্রি লাইনের স্ট্যাগার্ড ডিলে (বিল্ড সিকোয়েন্স) */
-        .tl-1 { animation-delay: 1.8s; }
-        .tl-2 { animation-delay: 1.9s; }
-        .tl-3 { animation-delay: 2.0s; }
-        .tl-4 { animation-delay: 2.1s; }
-        .tl-5 { animation-delay: 2.2s; }
-        .tl-6 { animation-delay: 2.3s; }
-        .tl-7 { animation-delay: 2.4s; }
-        .tl-8 { animation-delay: 2.5s; }
+        /* ট্রি লাইনের স্ট্যাগার্ড ডিলে */
+        .tl-1 { animation-delay: 2.2s; }
+        .tl-2 { animation-delay: 2.3s; }
+        .tl-3 { animation-delay: 2.4s; }
+        .tl-4 { animation-delay: 2.5s; }
+        .tl-5 { animation-delay: 2.6s; }
+        .tl-6 { animation-delay: 2.7s; }
+        .tl-7 { animation-delay: 2.8s; }
+        .tl-8 { animation-delay: 2.9s; }
 
         .tree-char {
             color: #444444;
@@ -163,10 +204,11 @@
         }
 
         a {
-            color: #4da6ff; /* ইলেকট্রিক ব্লু */
+            color: #4da6ff;
             text-decoration: underline;
             font-family: 'Georgia', serif;
             font-size: 20px;
+            transition: color 0.2s;
         }
 
         a:hover {
@@ -175,26 +217,23 @@
 
         .separator {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 45px;
             color: #333333;
             letter-spacing: 5px;
+            transform: translateZ(10px);
         }
 
         /* রেসপনসিভ জুম প্রোটেকশন */
         @media (max-width: 600px) {
-            body {
-                padding: 50px 20px 60px 20px;
-                font-size: 19px;
-            }
-            .tree-line a {
-                font-size: 19px;
-            }
+            body { padding: 40px 15px 60px 15px; }
+            .quantum-card { padding: 35px 20px; }
+            .tree-line a { font-size: 19px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- গথিক হোয়াইট অ্যান্ড ব্ল্যাক ওয়াটারমার্ক ব্যাকগ্রাউন্ড -->
+    <!-- গথিক হোয়াইট অ্যান্ড ব্ল্যাক ওয়াটারমার্ক (ব্যাকগ্রাউন্ড ড্রিফট লেয়ার) -->
     <div class="gothic-watermark">
         <svg width="100%" height="100%" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
             <path d="M 400,50 L 400,750 M 100,320 L 700,320" stroke="#ffffff" stroke-width="2" />
@@ -205,14 +244,14 @@
         </svg>
     </div>
 
-    <!-- 3D অ্যানিমেশন ফ্রেম শুরু -->
-    <div class="view-frame">
+    <!-- লিজেন্ডারি ৩ডি ভাসমান ক্রিস্টাল গ্লাস মেইনফ্রেম -->
+    <div class="quantum-card">
 
-        <!-- সিস্টেম ড্যাশবোর্ড বার -->
+        <!-- লাইভ সিস্টেম ড্যাশবোর্ড বার -->
         <div class="sys-dashboard">
             <div>SYS: <span class="sys-status-active">ONLINE</span></div>
             <div>LOC: DHAKA // BD</div>
-            <div>2026.06.26</div>
+            <div id="live-system-date">LOADING...</div>
         </div>
 
         <h1>Ratul Howladar</h1>
@@ -220,10 +259,8 @@
 
         <!-- মাল্টি-লেভেল টার্মিনাল ডিরেক্টরি ট্রি -->
         <div class="tree-container">
-            <!-- অটোমেটিক টাইপিং প্রম্পট লাইন -->
             <div class="tree-root-wrapper">ratul@neural_core:~$ tree --meta</div>
             
-            <!-- ফোল্ডার এবং ফাইলে ঠাসা অপশন সিকোয়েন্স (স্ট্যাগার্ড ক্যাসকেড লোড) -->
             <div class="tree-line tl-1"><span class="tree-char">├── </span><span class="tree-folder">core/</span></div>
             <div class="tree-line tl-2"><span class="tree-char">│   └── </span><a href="about.html">about.html</a><span class="file-meta">[3.8kb]</span></div>
             
@@ -238,10 +275,20 @@
             <div class="tree-line tl-8"><span class="tree-char">    └── </span><a href="ai_projects.html">ai_projects.html</a><span class="file-meta">[3.5kb]</span></div>
         </div>
 
-        <!-- ক্লিন ফিনিশিং -->
         <div class="separator">***</div>
 
-    </div> <!-- 3D অ্যানিমেশন ফ্রেম শেষ -->
+    </div>
+
+    <!-- পিওর রিয়েল-টাইম অটো ডেট ইঞ্জিন -->
+    <script>
+        (function() {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            document.getElementById('live-system-date').innerText = `${yyyy}.${mm}.${dd}`;
+        })();
+    </script>
 
 </body>
 </html>
